@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeController.swift
 //  PetWalking
 //
 //  Created by Muslim on 12.12.2023.
@@ -7,10 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
     }
 }
 
