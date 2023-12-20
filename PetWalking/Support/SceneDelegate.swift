@@ -24,5 +24,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let userRequest = RegisterUserRequest(email: "wazza311098@gmail.com", password: "password123")
+        AuthenticationService.shared.registerUser(with: userRequest) { wasRegistered, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            print("wasRegistered", wasRegistered)
+        }
     }
 }

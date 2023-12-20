@@ -101,18 +101,21 @@ class LoginController: UIViewController {
     // MARK: - Selectors
     @objc private func didTapContinueButton() {
         let vc =  HomeController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false)
+        let nc = UINavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .fullScreen
+        self.present(nc, animated: false)
     }
     @objc private func didTapForgotPasswordButton() {
         let vc =  ForgotPasswordController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false)
+        let nc = UINavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .fullScreen
+        self.present(nc, animated: false)
     }
     @objc private func didTapRegistrationButton() {
         let vc =  RegistrationController ()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false)
+        let nc = UINavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .fullScreen
+        self.present(nc, animated: false)
     }
     
 }

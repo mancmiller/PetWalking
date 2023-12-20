@@ -11,31 +11,6 @@ class RegistrationController: UIViewController {
     
     // MARK: - UI Components
     
-//    private let mainScrollView: UIScrollView = {
-//       let scrollView = UIScrollView()
-//        scrollView.showsVerticalScrollIndicator = false
-//        return scrollView
-//    }()
-//    
-//    private let stackViewContainer: UIStackView = {
-//       let stackView = UIStackView()
-//        stackView.distribution = .fillEqually
-//        stackView.alignment = .center
-//        stackView.axis = .vertical
-//        stackView.spacing = 20
-//        return stackView
-//    }()
-//    
-//    private let sexButtonsStackView: UIStackView = {
-//       let stackView = UIStackView()
-//        stackView.distribution = .fillEqually
-//        stackView.alignment = .center
-//        stackView.axis = .horizontal
-//        stackView.spacing = 20
-//        return stackView
-//    }()
-    
-    
     private let registrationImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -75,6 +50,14 @@ class RegistrationController: UIViewController {
         return button
     }()
     
+    private let label: UILabel = {
+       let label = UILabel()
+        label.text = "Основная информация"
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .lightGray
+        return label
+    }()
+    
     private let nameField = CustomTextField(fieldType: .name)
     private let emailField = CustomTextField(fieldType: .email)
     private let locationField = CustomTextField(fieldType: .location)
@@ -89,12 +72,13 @@ class RegistrationController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         self.setupUI()
     }
     
     // MARK: - UI Setup
     private func setupUI() {
+        
+        view.backgroundColor = .systemBackground
         
         let sexButtonsStackView = UIStackView(arrangedSubviews: [maleButton, femaleButton])
         sexButtonsStackView.distribution = .fillEqually
@@ -103,6 +87,7 @@ class RegistrationController: UIViewController {
         sexButtonsStackView.spacing = 20
         
         let mainScrollView = UIScrollView()
+        
         mainScrollView.showsVerticalScrollIndicator = false
         mainScrollView.contentInsetAdjustmentBehavior = .never
         mainScrollView.contentInset.bottom = 20
@@ -112,6 +97,7 @@ class RegistrationController: UIViewController {
         
         mainScrollView.addSubview(registrationImageView)
         mainScrollView.addSubview(sexButtonsStackView)
+        mainScrollView.addSubview(label)
         mainScrollView.addSubview(nameField)
         mainScrollView.addSubview(emailField)
         mainScrollView.addSubview(locationField)
@@ -123,6 +109,7 @@ class RegistrationController: UIViewController {
         mainScrollView.translatesAutoresizingMaskIntoConstraints = false
         registrationImageView.translatesAutoresizingMaskIntoConstraints = false
         sexButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         maleButton.translatesAutoresizingMaskIntoConstraints = false
         femaleButton.translatesAutoresizingMaskIntoConstraints = false
         nameField.translatesAutoresizingMaskIntoConstraints = false
@@ -155,7 +142,10 @@ class RegistrationController: UIViewController {
             femaleButton.topAnchor.constraint(equalTo: sexButtonsStackView.topAnchor),
             femaleButton.bottomAnchor.constraint(equalTo: sexButtonsStackView.bottomAnchor),
             
-            nameField.topAnchor.constraint(equalTo: sexButtonsStackView.bottomAnchor, constant: 20),
+            label.topAnchor.constraint(equalTo: sexButtonsStackView.bottomAnchor, constant: 20),
+            label.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor, constant: 16),
+            
+            nameField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
             nameField.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor, constant: 16),
             nameField.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor, constant: -16),
             nameField.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor),
