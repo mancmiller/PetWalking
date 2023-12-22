@@ -8,12 +8,12 @@
 import UIKit
 
 class ForgotPasswordController: UIViewController {
-
+    
     // MARK: - UI Components
     private let emailField = CustomTextField(fieldType: .email)
     
     private let descriptionLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Пожалуйста, укажите e-mail, который вы использовали для входа в Petapp для того чтобы мы напомнили ваш пароль."
         label.font = .systemFont(ofSize: 12)
         label.textColor = .lightGray
@@ -31,8 +31,19 @@ class ForgotPasswordController: UIViewController {
         self.setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     // MARK: - UI Setup
     private func setupUI() {
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "chevron"), style: .plain, target: self, action: #selector(didTapBackButton))
+        self.title = "Напомнить пароль"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)]
+
+        
         self.view.addSubview(emailField)
         self.view.addSubview(descriptionLabel)
         self.view.addSubview(sendEmailButton)
@@ -56,5 +67,11 @@ class ForgotPasswordController: UIViewController {
             sendEmailButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
             sendEmailButton.heightAnchor.constraint(equalToConstant: 60)
         ])
+    }
+    
+    // MARK: - Selector
+    
+    @objc func didTapBackButton() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

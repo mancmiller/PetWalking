@@ -1,5 +1,5 @@
 //
-//  RegisterUserRequest.swift
+//  UserRequest.swift
 //  PetWalking
 //
 //  Created by Muslim on 20.12.2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RegisterUserRequest {
+struct UserRequest {
     let email: String
     let password: String
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		042A518F2B29BE77003C1D54 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A518E2B29BE77003C1D54 /* CustomTextField.swift */; };
+		04684DAD2B3434DA000A3451 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04684DAC2B3434DA000A3451 /* Validator.swift */; };
 		0477A8902B32E3EA009F417E /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477A88F2B32E3EA009F417E /* AlertManager.swift */; };
 		0477A8922B32EAAD009F417E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0477A8912B32EAAD009F417E /* GoogleService-Info.plist */; };
 		0477A8952B32ECF7009F417E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0477A8942B32ECF7009F417E /* FirebaseAnalytics */; };
@@ -17,7 +18,7 @@
 		0477A89D2B32ECF7009F417E /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 0477A89C2B32ECF7009F417E /* FirebaseAppCheck */; };
 		0477A89F2B32EE9E009F417E /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477A89E2B32EE9E009F417E /* AuthenticationService.swift */; };
 		0477A8A22B32F412009F417E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0477A8A12B32F412009F417E /* FirebaseAuth */; };
-		0477A8A52B32F5DC009F417E /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477A8A42B32F5DC009F417E /* RegisterUserRequest.swift */; };
+		0477A8A52B32F5DC009F417E /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477A8A42B32F5DC009F417E /* UserRequest.swift */; };
 		0477A8A72B32F9A2009F417E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0477A8A62B32F9A2009F417E /* FirebaseFirestore */; };
 		0494A4AC2B2AE9840094F34B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494A4AB2B2AE9840094F34B /* CustomButton.swift */; };
 		04F72C062B2852A70071100D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F72C052B2852A70071100D /* AppDelegate.swift */; };
@@ -32,10 +33,11 @@
 
 /* Begin PBXFileReference section */
 		042A518E2B29BE77003C1D54 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		04684DAC2B3434DA000A3451 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		0477A88F2B32E3EA009F417E /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		0477A8912B32EAAD009F417E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0477A89E2B32EE9E009F417E /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
-		0477A8A42B32F5DC009F417E /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
+		0477A8A42B32F5DC009F417E /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		0494A4AB2B2AE9840094F34B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		04F72C022B2852A70071100D /* PetWalking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetWalking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F72C052B2852A70071100D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 		0477A8A32B32F489009F417E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0477A8A42B32F5DC009F417E /* RegisterUserRequest.swift */,
+				0477A8A42B32F5DC009F417E /* UserRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,12 +116,13 @@
 			isa = PBXGroup;
 			children = (
 				0477A8A32B32F489009F417E /* Models */,
-				0477A88F2B32E3EA009F417E /* AlertManager.swift */,
 				0477A88D2B32E3CE009F417E /* Controllers */,
 				04F72C1A2B28609E0071100D /* Views */,
 				04F72C192B2854BA0071100D /* Support */,
 				04F72C132B2852A70071100D /* Info.plist */,
 				0477A89E2B32EE9E009F417E /* AuthenticationService.swift */,
+				0477A88F2B32E3EA009F417E /* AlertManager.swift */,
+				04684DAC2B3434DA000A3451 /* Validator.swift */,
 			);
 			path = PetWalking;
 			sourceTree = "<group>";
@@ -232,10 +235,11 @@
 				04F72C1E2B2861000071100D /* RegistrationController.swift in Sources */,
 				04F72C202B2861120071100D /* ForgotPasswordController.swift in Sources */,
 				04F72C0A2B2852A70071100D /* HomeController.swift in Sources */,
+				04684DAD2B3434DA000A3451 /* Validator.swift in Sources */,
 				0494A4AC2B2AE9840094F34B /* CustomButton.swift in Sources */,
 				04F72C1C2B2860F20071100D /* LoginController.swift in Sources */,
 				04F72C062B2852A70071100D /* AppDelegate.swift in Sources */,
-				0477A8A52B32F5DC009F417E /* RegisterUserRequest.swift in Sources */,
+				0477A8A52B32F5DC009F417E /* UserRequest.swift in Sources */,
 				04F72C082B2852A70071100D /* SceneDelegate.swift in Sources */,
 				0477A8902B32E3EA009F417E /* AlertManager.swift in Sources */,
 				0477A89F2B32EE9E009F417E /* AuthenticationService.swift in Sources */,

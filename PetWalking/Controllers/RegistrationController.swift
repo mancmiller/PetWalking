@@ -11,6 +11,12 @@ class RegistrationController: UIViewController {
     
     // MARK: - UI Components
     
+    private let backButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.image = UIImage(named: "chevron")
+        let button = UIButton(configuration: configuration, primaryAction: nil)
+        return button
+    }()
     private let registrationImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -51,7 +57,7 @@ class RegistrationController: UIViewController {
     }()
     
     private let label: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Основная информация"
         label.font = .systemFont(ofSize: 14)
         label.textColor = .lightGray
@@ -73,12 +79,15 @@ class RegistrationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
     }
     
     // MARK: - UI Setup
     private func setupUI() {
         
         view.backgroundColor = .systemBackground
+        
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "chevron"), style: .plain, target: self, action: #selector(didTapBackButton))
         
         let sexButtonsStackView = UIStackView(arrangedSubviews: [maleButton, femaleButton])
         sexButtonsStackView.distribution = .fillEqually
@@ -92,10 +101,10 @@ class RegistrationController: UIViewController {
         mainScrollView.contentInsetAdjustmentBehavior = .never
         mainScrollView.contentInset.bottom = 20
         
-        
         self.view.addSubview(mainScrollView)
         
         mainScrollView.addSubview(registrationImageView)
+        registrationImageView.addSubview(backButton)
         mainScrollView.addSubview(sexButtonsStackView)
         mainScrollView.addSubview(label)
         mainScrollView.addSubview(nameField)
@@ -107,6 +116,7 @@ class RegistrationController: UIViewController {
         mainScrollView.addSubview(continueButton)
         
         mainScrollView.translatesAutoresizingMaskIntoConstraints = false
+        backButton.translatesAutoresizingMaskIntoConstraints = false
         registrationImageView.translatesAutoresizingMaskIntoConstraints = false
         sexButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -130,6 +140,9 @@ class RegistrationController: UIViewController {
             registrationImageView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
             registrationImageView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
             registrationImageView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor),
+            
+            backButton.topAnchor.constraint(equalTo: registrationImageView.topAnchor, constant: 48),
+            backButton.leadingAnchor.constraint(equalTo: registrationImageView.leadingAnchor),
             
             sexButtonsStackView.topAnchor.constraint(equalTo: registrationImageView.bottomAnchor, constant: 20),
             sexButtonsStackView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor, constant: 16),
@@ -189,5 +202,10 @@ class RegistrationController: UIViewController {
         ])
     }
     
+    // MARK: - Selector
+    
+    @objc func didTapBackButton() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }
 
